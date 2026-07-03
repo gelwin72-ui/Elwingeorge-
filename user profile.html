@@ -1,0 +1,154 @@
+<html>
+    <body>
+        <div class="profile">
+
+    <img src="profile.png" id="profileImage">
+
+    <h2 id="userName">Guest User</h2>
+
+    <p id="userEmail">guest@example.com</p>
+
+    <input type="text" id="name" placeholder="Full Name">
+
+    <input type="email" id="email" placeholder="Email">
+
+    <input type="text" id="phone" placeholder="Phone Number">
+
+    <textarea id="address" placeholder="Address"></textarea>
+
+    <button onclick="saveProfile()">Save Profile</button>
+
+    <button onclick="logout()">Logout</button>
+
+    <button onclick="EditProfile()">Edit Profile</button>
+
+    <button onclick="SaveChanges()">Save Changes</button>
+</div>
+<style>
+.profile{
+    width:90%;
+    max-width:450px;
+    margin:30px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.profile img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #0a8f3d;
+    margin-bottom:15px;
+}
+
+.profile input,
+.profile textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+
+.profile textarea{
+    height:80px;
+    resize:none;
+}
+
+.profile button{
+    width:100%;
+    margin-top:10px;
+    padding:12px;
+    background:#0a8f3d;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.profile button:hover{
+    background:#06772f;
+}
+</style>
+<script>
+    
+
+window.onload=function(){
+
+    if(localStorage.getItem("name")){
+        document.getElementById("name").value=localStorage.getItem("name");
+        document.getElementById("email").value=localStorage.getItem("email");
+        document.getElementById("phone").value=localStorage.getItem("phone");
+        document.getElementById("address").value=localStorage.getItem("address");
+
+        document.getElementById("userName").innerHTML=localStorage.getItem("name");
+        document.getElementById("userEmail").innerHTML=localStorage.getItem("email");
+         document.getElementById("EditProfile").innerHTML=localStorage.getItem("EditProfile");
+  document.getElementById("SaveChanges").innerHTML=localStorage.getItem("SaveChanges");
+        }
+
+}
+
+function saveProfile(){
+
+    localStorage.setItem("name",document.getElementById("name").value);
+    localStorage.setItem("email",document.getElementById("email").value);
+    localStorage.setItem("phone",document.getElementById("phone").value);
+    localStorage.setItem("address",document.getElementById("address").value);
+
+    document.getElementById("userName").innerHTML=document.getElementById("name").value;
+    document.getElementById("userEmail").innerHTML=document.getElementById("email").value;
+ document.getElementById("EditProfile").innerHTML=document.getElementById("EditProfile").value;
+  document.getElementById("SaveChanges").innerHTML=document.getElementById("SaveChanges").value;
+
+    alert("Profile Updated Successfully");
+    alert("Edit Profile Updated Successfully");
+
+}
+
+function logout(){
+
+    alert("Logged Out");
+
+    window.location.href="index.html";
+
+}
+function EditProfile(){
+
+    alert("Edit Profile");
+
+    window.location.href="user profile.html";
+
+}
+function EditProfile(){
+
+    localStorage.setItem("name",document.getElementById("name").value);
+    localStorage.setItem("email",document.getElementById("email").value);
+    localStorage.setItem("phone",document.getElementById("phone").value);
+    localStorage.setItem("address",document.getElementById("address").value);
+
+    document.getElementById("userName").innerHTML=document.getElementById("name").value;
+    document.getElementById("userEmail").innerHTML=document.getElementById("email").value;
+ document.getElementById("EditProfile").innerHTML=document.getElementById("EditProfile").value;
+  document.getElementById("SaveChanges").innerHTML=document.getElementById("SaveChanges").value;
+
+    alert("Profile Updated Successfully");
+    alert("Edit Profile Updated Successfully");
+
+}
+function SaveChanges(){
+
+    alert("Save Changes");
+
+    window.location.href="index.html";
+
+}
+
+</script>
+    </body>
+</html>

@@ -1,0 +1,644 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>products</title>
+  <style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:dark gray;;
+}
+/* Search Box */
+
+#searchBox {
+    width: 100%;
+    max-width: 500px;
+    height: 45px;
+    padding: 0 18px;
+    font-size: 16px;
+    border: 2px solid #0a8f3d;
+    border-radius: 30px;
+    outline: none;
+    background: #ffffff;
+    transition: 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#searchBox:focus {
+    border-color: #06772f;
+    box-shadow: 0 0 10px rgba(10, 143, 61, 0.4);
+}
+
+/* Placeholder */
+
+#searchBox::placeholder {
+    color: #888;
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+    
+    #searchBox {
+        width: 95%;
+        height: 42px;
+        font-size: 15px;
+    }
+    
+}
+header{
+    background:#131921;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.product{
+    background:rgb(255, 255, 255);
+    border-radius:10px;
+    padding:5px;
+    box-shadow:0 2px 8px rgb(0, 0, 0);
+    text-align:center;
+}
+
+.product img{
+    width:100%;
+    height: 200px;
+    object-fit: fill;
+    border-radius:5px;
+}
+
+.product h3{
+    margin:5px 0;
+}
+
+.price{
+    color:green;
+    font-size:18px;
+    font-weight:bold;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    margin-top:8px;
+    cursor:pointer;
+}
+
+.cart-btn{
+    background:#ffd814;
+}
+
+.buy-btn{
+    background:#ffa41c;
+}
+#cart{
+    background:rgb(252, 252, 252);
+    margin:10px;
+    padding:15px;
+     box-shadow:0 2px 8px rgb(0, 0, 0);
+    border-radius:10px;
+}
+
+#buynow{
+    background:rgb(252, 252, 252);
+    margin:10px;
+    padding:15px;
+     box-shadow:0 2px 8px rgb(0, 0, 0);
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+  <input type="text" id="searchBox" placeholder="Search products..." onkeyup="searchProducts()">
+
+<div class="products">
+    
+
+<div class="product">
+<img src="Rice.jpg"><h3>അരി / Rice</h3>
+<p class="price">₹55</p>
+<button class="cart-btn" onclick="addCart('Rice',55)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Rice',55)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Wheat Flour.jpg"><h3>ഗോതമ്പ് പൊടി / Wheat Flour</h3>
+<p class="price">₹60</p>
+<button class="cart-btn" onclick="addCart('Wheat Flour',60)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Wheat Flour',60)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Maida.png"><h3>മൈദ / Maida</h3>
+<p class="price">₹48</p>
+<button class="cart-btn" onclick="addCart('Maida',48)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Maida',48)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="rava.jpg"><h3>റവ / Rava</h3>
+<p class="price">₹52</p>
+<button class="cart-btn" onclick="addCart('Rava',52)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Rava',52)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="sugar.png"><h3>പഞ്ചസാര / Sugar</h3>
+<p class="price">₹45</p>
+<button class="cart-btn" onclick="addCart('Sugar',45)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Sugar',45)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Salt.png"><h3>ഉപ്പ് / Salt</h3>
+<p class="price">₹20</p>
+<button class="cart-btn" onclick="addCart('Salt',20)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Salt',20)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Jaggery.jpg"> <h3>ശർക്കര / Jaggery</h3>
+<p class="price">₹70</p>
+<button class="cart-btn" onclick="addCart('Jaggery',70)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Jaggery',70)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Cooking Oil.jpg"><h3>പാചക എണ്ണ / Cooking Oil</h3>
+<p class="price">₹180</p>
+<button class="cart-btn" onclick="addCart('Cooking Oil',180)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Cooking Oil',180)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Ghee.png"><h3>നെയ്യ് / Ghee</h3>
+<p class="price">₹550</p>
+<button class="cart-btn" onclick="addCart('Ghee',550)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Ghee',550)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Sauces.png"><h3>സോസ് / Sauces</h3>
+<p class="price">₹90</p>
+<button class="cart-btn" onclick="addCart('Sauces',90)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Sauces',90)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Pickles.png"><h3>അച്ചാർ / Pickles</h3>
+<p class="price">₹120</p>
+<button class="cart-btn" onclick="addCart('Pickles',120)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Pickles',120)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Jam.png"><h3>ജാം / Jam</h3>
+<p class="price">₹40</p>
+<button class="cart-btn" onclick="addCart('Jam',40)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Jam',40)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Tea Powder.png"><h3>ചായപ്പൊടി / Tea Powder</h3>
+<p class="price">₹150</p>
+<button class="cart-btn" onclick="addCart('Tea Powder',150)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Tea Powder',150)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Coffee Powder.png"><h3>കാപ്പിപ്പൊടി / Coffee Powder</h3>
+<p class="price">₹200</p>
+<button class="cart-btn" onclick="addCart('Coffee Powder',200)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Coffee Powder',200)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Coconut Oil.jpg"><h3>വെളിച്ചെണ്ണ / Coconut Oil</h3>
+<p class="price">₹240</p>
+<button class="cart-btn" onclick="addCart('Coconut Oil',240)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Coconut Oil',240)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Sunflower Oil.png"><h3>സൂര്യകാന്തി എണ്ണ / Sunflower Oil</h3>
+<p class="price">₹190</p>
+<button class="cart-btn" onclick="addCart('Sunflower Oil',190)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Sunflower Oil',190)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Mustard Oil.png"><h3>കടുക് എണ്ണ / Mustard Oil</h3>
+<p class="price">₹210</p>
+<button class="cart-btn" onclick="addCart('Mustard Oil',210)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Mustard Oil',210)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Groundnut Oil.png"><h3>നിലക്കടല എണ്ണ / Groundnut Oil</h3>
+<p class="price">₹220</p>
+<button class="cart-btn" onclick="addCart('Groundnut Oil',220)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Groundnut Oil',220)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Soy Sauce.png"><h3>സോയ സോസ് / Soy Sauce</h3>
+<p class="price">₹95</p>
+<button class="cart-btn" onclick="addCart('Soy Sauce',95)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Soy Sauce',95)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Tomato Ketchup.png"><h3>തക്കാളി കെച്ചപ്പ് / Tomato Ketchup</h3>
+<p class="price">₹120</p>
+<button class="cart-btn" onclick="addCart('Ketchup',120)">Add to Cart</button>
+<button class="buy-btn"onclick="buynow('Ketchup',120)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Chilli Sauce.png"><h3>പച്ചമുളക് സോസ് / Green Chilli Sauce</h3>
+<p class="price">₹115</p>
+<button class="cart-btn" onclick="addCart('Chilli Sauce',115)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Chilli Sauce',115)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Mayonnaise.png"><h3>മയോണൈസ് / Mayonnaise</h3>
+<p class="price">₹140</p>
+<button class="cart-btn" onclick="addCart('Mayonnaise',140)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Mayonnaise',140)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Peanut Butter.jpg"><h3>നിലക്കടല വെണ്ണ / Peanut Butter</h3>
+<p class="price">₹250</p>
+<button class="cart-btn" onclick="addCart('Peanut Butter',250)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Peanut Butter',250)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Corn Flour.jpg"><h3>കോൺ ഫ്ലവർ / Corn Flour</h3>
+<p class="price">₹60</p>
+<button class="cart-btn" onclick="addCart('Corn Flour',60)">Add to Cart</button>
+<button class="buy-btn" onclick="buynow('Corn Flour',60)">Buy Now</button>
+</div>
+
+<div class="product">
+<img src="Baking Powder.jpg"><h3>ബേക്കിംഗ് സോഡ / Baking Soda</h3>
+<p class="price">₹45</p>
+<button class="cart-btn" onclick="addCart('Baking Soda',45)">Add to Cart</button>
+<button class="buy-btn"  onclick="buynow('Baking Soda',45)">Buy Now</button>
+</div>
+
+<!-- ================= PULSES ================= -->
+<div class="product"><img src="Toor Dal.png"> <h3>തുവര പരിപ്പ് / Toor Dal</h3> <p class="price">₹120</p> <button class="cart-btn" onclick="addCart('Toor Dal',120)">Add to Cart</button> <button class="buy-btn" onclick="buynow('Toor Dal',120)">Buy Now</button></div>
+
+<div class="product"><img src="Moong Dal.jpg"><h3>ചെറുപയർ പരിപ്പ് / Moong Dal</h3><p class="price">₹130</p><button class="cart-btn" onclick="addCart('Moong Dal',130)">Add to Cart</button><button class="buy-btn" onclick="buynow('Moong Dal',130)">Buy Now</button></div>
+
+<div class="product"><img src="Urad Dal.jpg"><h3>ഉഴുന്ന് / Urad Dal</h3><p class="price">₹140</p><button class="cart-btn" onclick="addCart('Urad Dal',140)">Add to Cart</button><button class="buy-btn" onclick="buynow('Urad Dal',140)">Buy Now</button></div>
+
+<div class="product"><img src="Chana Dal.png"><h3>കടല പരിപ്പ് / Chana Dal</h3><p class="price">₹110</p><button class="cart-btn" onclick="addCart('Chana Dal',110)">Add to Cart</button><button class="buy-btn"onclick="buynow('Chana Dal',110)">Buy Now</button></div>
+
+<div class="product"><img src="Rajma.png"><h3>രാജ്മ / Rajma</h3><p class="price">₹150</p><button class="cart-btn" onclick="addCart('Rajma',150)">Add to Cart</button><button class="buy-btn"onclick="buynow('Rajma',150)">Buy Now</button></div>
+
+<div class="product"><img src="Green Gram.png"><h3>ചെറുപയർ / Green Gram</h3><p class="price">₹135</p><button class="cart-btn" onclick="addCart('Green Gram',135)">Add to Cart</button><button class="buy-btn"onclick="buynow('Green Gram',135)">Buy Now</button></div>
+
+<!-- ================= SPICES ================= -->
+<div class="product"><img src="Turmeric Powder.jpg"><h3>മഞ്ഞൾപ്പൊടി / Turmeric Powder</h3><p class="price">₹60</p><button class="cart-btn" onclick="addCart('Turmeric Powder',60)">Add to Cart</button><button class="buy-btn"onclick="buynow('Turmeric Powder',60)">Buy Now</button></div>
+
+<div class="product"><img src="Chilli Powder.jpg"><h3>മുളകുപൊടി / Chilli Powder</h3><p class="price">₹80</p><button class="cart-btn" onclick="addCart('Chilli Powder',80)">Add to Cart</button><button class="buy-btn"onclick="buynow('Chilli Powder',80)">Buy Now</button></div>
+
+<div class="product"><img src="Coriander Powder.jpg"><h3>മല്ലിപ്പൊടി / Coriander Powder</h3><p class="price">₹70</p><button class="cart-btn" onclick="addCart('Coriander Powder',70)">Add to Cart</button><button class="buy-btn"onclick="buynow('Coriander Powder',70)">Buy Now</button></div>
+
+<div class="product"><img src="Pepper.png"><h3>കുരുമുളക് / Pepper</h3><p class="price">₹120</p><button class="cart-btn" onclick="addCart('Pepper',120)">Add to Cart</button><button class="buy-btn"onclick="buynow('Pepper',120)">Buy Now</button></div>
+
+<div class="product"><img src="Cumin.jpg"><h3>ജീരകം / Cumin</h3><p class="price">₹90</p><button class="cart-btn" onclick="addCart('Cumin',90)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cumin',90)">Buy Now</button></div>
+
+<div class="product"><img src="Mustard Seeds.jpg"><h3>കടുക് / Mustard Seeds</h3><p class="price">₹50</p><button class="cart-btn" onclick="addCart('Mustard Seeds',50)">Add to Cart</button><button class="buy-btn" onclick="buynow('Mustard Seeds',50)">Buy Now</button></div>
+
+<div class="product"><img src="Cardamom.jpg"><h3>ഏലക്ക / Cardamom</h3><p class="price">₹180</p><button class="cart-btn" onclick="addCart('Cardamom',180)">Add to Cart</button><button class="buy-btn" onclick="buynow('Cardamom',180)">Buy Now</button></div>
+
+<div class="product"><img src="Cloves.jpg"><h3>ഗ്രാമ്പൂ / Cloves</h3><p class="price">₹160</p><button class="cart-btn" onclick="addCart('Cloves',160)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cloves',160)">Buy Now</button></div>
+
+<div class="product"><img src="Cinnamon.png"><h3>കറുവപ്പട്ട / Cinnamon</h3><p class="price">₹140</p><button class="cart-btn" onclick="addCart('Cinnamon',140)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cinnamon',140)">Buy Now</button></div>
+
+<div class="product"><img src="Garam Masala.png"><h3>ഗരം മസാല / Garam Masala</h3><p class="price">₹95</p><button class="cart-btn" onclick="addCart('Garam Masala',95)">Add to Cart</button><button class="buy-btn"onclick="buynow('Garam Masala',95)">Buy Now</button></div>
+
+<!-- ================= VEGETABLES ================= -->
+<div class="product"><img src="Potato.png"><h3>ഉരുളക്കിഴങ്ങ് / Potato</h3><p class="price">₹40</p><button class="cart-btn" onclick="addCart('Potato',40)">Add to Cart</button><button class="buy-btn"onclick="buynow('Potato',40)">Buy Now</button></div>
+
+<div class="product"><img src="Onion.png"><h3>സവാള / Onion</h3><p class="price">₹50</p><button class="cart-btn" onclick="addCart('Onion',50)">Add to Cart</button><button class="buy-btn"onclick="buynow('Onion',50)">Buy Now</button></div>
+
+<div class="product">
+    <img src="Tomato.png"><h3>തക്കാളി / Tomato</h3><p class="price">₹45</p><button class="cart-btn" onclick="addCart('Tomato',45)">Add to Cart</button><button class="buy-btn"onclick="buynow('Tomato',45)">Buy Now</button></div>
+
+<div class="product"><img src="Carrot.png"><h3>കാരറ്റ് / Carrot</h3><p class="price">₹60</p><button class="cart-btn" onclick="addCart('Carrot',60)">Add to Cart</button><button class="buy-btn"onclick="buynow('Carrot',60)">Buy Now</button></div>
+
+<div class="product"><img src="Beetroot.png"><h3>ബീറ്റ്റൂട്ട് / Beetroot</h3><p class="price">₹55</p><button class="cart-btn" onclick="addCart('Beetroot',55)">Add to Cart</button><button class="buy-btn"onclick="buynow('Beetroot',55)">Buy Now</button></div>
+
+<div class="product"><img src="Cabbage.png"><h3>കാബേജ് / Cabbage</h3><p class="price">₹35</p><button class="cart-btn" onclick="addCart('Cabbage',35)">Add to Cart</button><button class="buy-btn" onclick="buynow('Cabbage',35)">Buy Now</button></div>
+
+<div class="product"><img src="Cauliflower.png"><h3>കോളിഫ്ലവർ / Cauliflower</h3><p class="price">₹50</p><button class="cart-btn" onclick="addCart('Cauliflower',50)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cauliflower',50)">Buy Now</button></div>
+
+<div class="product"><img src="Brinjal.png"><h3>വഴുതന / Brinjal</h3><p class="price">₹45</p><button class="cart-btn" onclick="addCart('Brinjal',45)">Add to Cart</button><button class="buy-btn" onclick="buynow('Brinjal',45)">Buy Now</button></div>
+
+<div class="product"><img src="Cucumber.png"><h3>വെള്ളരി / Cucumber</h3><p class="price">₹40</p><button class="cart-btn" onclick="addCart('Cucumber',40)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cucumber',40)"></button>>Buy Now</button></div>
+
+<div class="product"><img src="Garlic.png"><h3>വെളുത്തുള്ളി / Garlic</h3><p class="price">₹120</p><button class="cart-btn" onclick="addCart('Garlic',120)">Add to Cart</button><button class="buy-btn"onclick="buynow('Garlic',120)">Buy Now</button></div>
+
+<div class="product"><img src="Ginger.png"><h3>ഇഞ്ചി / Ginger</h3><p class="price">₹100</p><button class="cart-btn" onclick="addCart('Ginger',100)">Add to Cart</button><button class="buy-btn"onclick="buynow('Ginger',100)">Buy Now</button></div>
+
+<!-- ================= DAIRY ================= -->
+<div class="product"><img src="milk.png"><h3>പാൽ / Milk</h3><p class="price">₹50</p><button class="cart-btn" onclick="addCart('Milk',50)">Add to Cart</button><button class="buy-btn" onclick="buynow('Milk',50)">Buy Now</button></div>
+
+<div class="product"><img src="Curd.png"><h3>തൈര് / Curd</h3><p class="price">₹40</p><button class="cart-btn" onclick="addCart('Curd',40)">Add to Cart</button><button class="buy-btn" onclick="buynow('Curd',40)">Buy Now</button></div>
+
+<div class="product"><img src="Butter.png"><h3>വെണ്ണ / Butter</h3><p class="price">₹60</p><button class="cart-btn" onclick="addCart('Butter',60)">Add to Cart</button><button class="buy-btn" onclick="buynow('Butter',60)">Buy Now</button></div>
+
+<div class="product"><img src="Cheese.png"><h3>ചീസ് / Cheese</h3><p class="price">₹120</p><button class="cart-btn" onclick="addCart('Cheese',120)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cheese',120)">Buy Now</button></div>
+
+<div class="product"><img src="Paneer.png"><h3>പനീർ / Paneer</h3><p class="price">₹90</p><button class="cart-btn" onclick="addCart('Paneer',90)">Add to Cart</button><button class="buy-btn"onclick="buynow('Paneer',90)">Buy Now</button></div>
+
+<div class="product"><img src="Cream.png"><h3>ക്രീം / Cream</h3><p class="price">₹70</p><button class="cart-btn" onclick="addCart('Cream',70)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cream',70)">Buy Now</button></div>
+
+<div class="product"><img src="Yogurt.png"><h3>യോഗർട്ട് / Yogurt</h3><p class="price">₹50</p><button class="cart-btn" onclick="addCart('Yogurt',50)">Add to Cart</button><button class="buy-btn"onclick="buynow('Yogurt',50)">Buy Now</button></div>
+
+<!-- ================= BAKERY ================= -->
+<div class="product"><img src="Bread.png"><h3>ബ്രെഡ് / Bread</h3><p class="price">₹40</p><button class="cart-btn" onclick="addCart('Bread',40)">Add to Cart</button><button class="buy-btn"onclick="buynow('Bread',40)">Buy Now</button></div>
+
+<div class="product"><img src="Bun.png"><h3>ബൺ / Bun</h3><p class="price">₹30</p><button class="cart-btn" onclick="addCart('Bun',30)">Add to Cart</button><button class="buy-btn"onclick="buynow('Bun',30)">Buy Now</button></div>
+
+<div class="product"><img src="cake.jpg"><h3>കേക്ക് / Cake</h3><p class="price">₹250</p><button class="cart-btn" onclick="addCart('Cake',250)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cake',250)">Buy Now</button></div>
+
+<div class="product"><img src="Biscuit.jpg"><h3>ബിസ്കറ്റ് / Biscuit</h3><p class="price">₹20</p><button class="cart-btn" onclick="addCart('Biscuit',20)">Add to Cart</button><button class="buy-btn"onclick="buynow('Biscuit',20)">Buy Now</button></div>
+
+<div class="product"><img src="Cookies.png"><h3>കുക്കീസ് / Cookies</h3><p class="price">₹35</p><button class="cart-btn" onclick="addCart('Cookies',35)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cookies',35)">Buy Now</button></div>
+
+<div class="product"><img src="Rusk.png"><h3>റസ്ക് / Rusk</h3><p class="price">₹50</p><button class="cart-btn" onclick="addCart('Rusk',50)">Add to Cart</button><button class="buy-btn"onclick="buynow('Rusk',50)">Buy Now</button></div>
+
+<div class="product"><img src="Muffins.png"><h3>മഫിൻസ് / Muffins</h3><p class="price">₹60</p><button class="cart-btn" onclick="addCart('Muffins',60)">Add to Cart</button><button class="buy-btn"onclick="buynow('Muffins',60)">Buy Now</button></div>
+
+<!-- ================= INSTANT FOOD ================= -->
+<div class="product"><img src="Noodles.png"><h3>നൂഡിൽസ് / Noodles</h3><p class="price">₹30</p><button class="cart-btn" onclick="addCart('Noodles',30)">Add to Cart</button><button class="buy-btn"onclick="buynow('Noodles',30)">Buy Now</button></div>
+
+<div class="product"><img src="Pasta.png"><h3>പാസ്ത / Pasta</h3><p class="price">₹85</p><button class="cart-btn" onclick="addCart('Pasta',85)">Add to Cart</button><button class="buy-btn" onclick="buynow('Pasta',85)">Buy Now</button></div>
+
+<div class="product"><img src="Oats.png"><h3>ഓട്സ് / Oats</h3><p class="price">₹120</p><button class="cart-btn" onclick="addCart('Oats',120)">Add to Cart</button><button class="buy-btn"onclick="buynow('Oats',120)">Buy Now</button></div>
+
+<div class="product"><img src="Cornflakes.png"><h3>കോൺഫ്ലേക്സ് / Cornflakes</h3><p class="price">₹140</p><button class="cart-btn" onclick="addCart('Cornflakes',140)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cornflakes',140)">Buy Now</button></div>
+
+<div class="product"><img src="Instant Soup.png"><h3>ഇൻസ്റ്റന്റ് സൂപ്പ് / Instant Soup</h3><p class="price">₹90</p><button class="cart-btn" onclick="addCart('Soup',90)">Add to Cart</button><button class="buy-btn"onclick="buynow('Soup',90)">Buy Now</button></div>
+
+<!-- ================= DRY FRUITS ================= -->
+<div class="product"><img src="Cashew Nuts.png"><h3>കശുവണ്ടി / Cashew Nuts</h3><p class="price">₹450</p><button class="cart-btn" onclick="addCart('Cashew',450)">Add to Cart</button><button class="buy-btn"onclick="buynow('Cashew',450)">Buy Now</button></div>
+
+<div class="product"><img src="Almonds.png"><h3>ബദാം / Almonds</h3><p class="price">₹550</p><button class="cart-btn" onclick="addCart('Almonds',550)">Add to Cart</button><button class="buy-btn"onclick="buynow('Almonds',550)">Buy Now</button></div>
+
+<div class="product"><img src="Pistachios.png"><h3>പിസ്ത / Pistachios</h3><p class="price">₹700</p><button class="cart-btn" onclick="addCart('Pistachios',700)">Add to Cart</button><button class="buy-btn"onclick="buynow('Pistachios',700)">Buy Now</button></div>
+
+<div class="product"><img src="raisins.jpg"><h3>ഉണക്ക മുന്തിരി / Raisins</h3><p class="price">₹180</p><button class="cart-btn" onclick="addCart('Raisins',180)">Add to Cart</button><button class="buy-btn"onclick="buynow('Raisins',180)">Buy Now</button></div>
+
+<div class="product"><img src="Dates.png"><h3>ഈന്തപ്പഴം / Dates</h3><p class="price">₹250</p><button class="cart-btn" onclick="addCart('Dates',250)">Add to Cart</button><button class="buy-btn"onclick="buynow('Dates',250)">Buy Now</button></div>
+
+<div class="product"><img src="Walnuts.png"><h3>വാൾണട്ട് / Walnuts</h3><p class="price">₹650</p><button class="cart-btn" onclick="addCart('Walnuts',650)">Add to Cart</button><button class="buy-btn"onclick="buynow('Walnuts',650)">Buy Now</button></div>
+
+<!-- ================= PERSONAL CARE ================= -->
+<div class="product"><img src="Soap.png"><h3>സോപ്പ് / Soap</h3><p class="price">₹35</p><button class="cart-btn" onclick="addCart('Soap',35)">Add to Cart</button><button class="buy-btn"onclick="buynow('Soap',35)">Buy Now</button></div>
+
+</div>
+
+
+<script>
+function searchProducts() {
+
+    let search = document.getElementById("searchBox").value.toLowerCase();
+
+    let products = document.querySelectorAll(".product");
+
+    products.forEach(product => {
+
+        let productName = product.querySelector("h3").textContent.toLowerCase();
+
+        if (productName.includes(search)) {
+            product.style.display = "";
+        } else {
+            product.style.display = "none";
+        }
+
+    });
+}
+</script>
+
+<div id="cart">
+<h2>🛒 Shopping Cart</h2>
+<ul id="cartItems"></ul>
+<h3>Total: ₹<span id="total">0</span></h3>
+</div>
+<script>
+function addCart(name,price){
+
+let cart =
+JSON.parse(localStorage.getItem("cart"))
+|| [];
+
+cart.push({
+name:name,
+price:price
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+showCart();
+}
+
+function showCart(){
+
+let cart =
+JSON.parse(localStorage.getItem("cart"))
+|| [];
+
+let total = 0;
+let html = "";
+
+cart.forEach(item => {
+total += item.price;
+
+html += `
+<li>
+${item.name} - ₹${item.price}
+</li>
+`;
+});
+
+document.getElementById("cartItems")
+.innerHTML = html;
+
+document.getElementById("total")
+.innerHTML = total;
+}
+
+showCart();
+</script>
+
+
+<button onclick="clearCart()">Clear Cart</button>
+<script>
+function clearCart() {
+    localStorage.removeItem("cart");
+    location.reload();
+}
+
+</script>
+<style>
+.clear-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:30px 50px;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+<div id="buynow"></div>
+<h2>🛒 Buy Now</h2>
+<ul id="buyItems"></ul>
+<h3>Total: ₹<span id="total1">0</span></h3>
+</div>
+
+<script>
+function buynow(name,price){
+
+let cart =
+JSON.parse(localStorage.getItem("buynow"))
+|| [];
+
+buynow.push({
+name:name,
+price:price
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(buynow)
+);
+
+showCart();
+}
+
+function showbuy(){
+
+let buynow =
+JSON.parse(localStorage.getItem("buynow"))
+|| [];
+
+let total = 0;
+let html = "";
+
+buynow.forEach(item => {
+total += item.price;
+
+html += `
+<li>
+${item.name} - ₹${item.price}
+</li>
+`;
+});
+
+document.getElementById("buyItems")
+.innerHTML = html;
+
+document.getElementById("total1")
+.innerHTML = total;
+}
+
+showbuy();
+//buynow total btn
+function buynow(name,price){
+
+let buynow =
+JSON.parse(localStorage.getItem("buynow"))
+|| [];
+
+buynow.push({
+name:name,
+price:price
+});
+
+localStorage.setItem(
+"buynow",
+JSON.stringify(buynow)
+);
+
+showCart();
+}
+
+function showCart(){
+
+let buynow =
+JSON.parse(localStorage.getItem("buynow"))
+|| [];
+
+let total = 0;
+let html = "";
+
+buynow.forEach(item => {
+total += item.price;
+
+html += `
+<li>
+${item.name} - ₹${item.price}
+</li>
+`;
+});
+
+document.getElementById("buyItems")
+.innerHTML = html;
+
+document.getElementById("total1")
+.innerHTML = total;
+}
+
+showCart();
+</script>
+</script>
+
+<button onclick="clearCart1()">Clear Cart</button>
+<script>
+function clearCart1() {
+    localStorage.removeItem("buynow");
+    location.reload();
+}
+
+</script>
+<style>
+.clear1-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:30px 50px;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jo Mart - Account Settings</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Account Settings</h1>
+
+<div class="profile-card">
+
+<div class="profile-image">
+
+<img id="profilePic" src="https://via.placeholder.com/150" alt="Profile">
+
+<input type="file" id="imageUpload" accept="image/*">
+
+<label for="imageUpload">
+<span class="material-icons">photo_camera</span>
+</label>
+
+</div>
+
+<h2 id="displayName"></h2>
+
+<p id="displayEmail"></p>
+
+</div>
+
+<div class="settings">
+
+<div class="setting-item">
+
+<span class="material-icons">person</span>
+
+<span>Edit Profile</span>
+
+<button onclick="openProfile()">Open</button>
+
+</div>
+
+<div class="setting-item">
+
+<span class="material-icons">lock</span>
+
+<span>Change Password</span>
+
+<button onclick="openPassword()">Open</button>
+
+</div>
+
+<div class="setting-item">
+
+<span class="material-icons">location_on</span>
+
+<span>Saved Addresses</span>
+
+<button onclick="openAddress()">Open</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Edit Profile -->
+
+<div class="popup" id="profilePopup">
+
+<div class="popup-content">
+
+<h2>Edit Profile</h2>
+
+<input id="nameInput" placeholder="Full Name">
+
+<input id="emailInput" placeholder="Email">
+
+<button onclick="saveProfile()">Save</button>
+
+<button onclick="closePopup()">Cancel</button>
+
+</div>
+
+</div>
+
+<!-- Password -->
+
+<div class="popup" id="passwordPopup">
+
+<div class="popup-content">
+
+<h2>Change Password</h2>
+
+<input type="password" placeholder="Old Password">
+
+<input type="password" placeholder="New Password">
+
+<input type="password" placeholder="Confirm Password">
+
+<button onclick="changePassword()">Save</button>
+
+<button onclick="closePopup()">Cancel</button>
+
+</div>
+
+</div>
+
+<!-- Address -->
+
+<div class="popup" id="addressPopup">
+
+<div class="popup-content">
+
+<h2>Saved Addresses</h2>
+
+<textarea id="addressBox" placeholder="Enter Address"></textarea>
+
+<button onclick="saveAddress()">Save</button>
+
+<button onclick="closePopup()">Cancel</button>
+
+</div>
+
+</div>
+<style>
+    body{
+
+margin:0;
+
+font-family:Arial;
+
+background:#f3f4f6;
+
+}
+
+.container{
+
+width:90%;
+
+max-width:500px;
+
+margin:30px auto;
+
+}
+
+h1{
+
+text-align:center;
+
+}
+
+.profile-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+.profile-image{
+
+position:relative;
+
+width:150px;
+
+margin:auto;
+
+}
+
+.profile-image img{
+
+width:150px;
+
+height:150px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:4px solid #4CAF50;
+
+}
+
+.profile-image input{
+
+display:none;
+
+}
+
+.profile-image label{
+
+position:absolute;
+
+right:0;
+
+bottom:0;
+
+background:#4CAF50;
+
+color:white;
+
+padding:8px;
+
+border-radius:50%;
+
+cursor:pointer;
+
+}
+
+.settings{
+
+margin-top:25px;
+
+}
+
+.setting-item{
+
+background:white;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:15px;
+
+margin-bottom:12px;
+
+border-radius:12px;
+
+box-shadow:0 3px 8px rgba(0,0,0,.1);
+
+}
+
+.setting-item button{
+
+background:#4CAF50;
+
+color:white;
+
+border:none;
+
+padding:8px 15px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+}
+
+.popup{
+
+display:none;
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.5);
+
+}
+
+.popup-content{
+
+background:white;
+
+width:320px;
+
+padding:20px;
+
+border-radius:10px;
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+}
+
+.popup input,
+.popup textarea{
+
+width:100%;
+
+padding:10px;
+
+margin:10px 0;
+
+box-sizing:border-box;
+
+}
+
+.popup button{
+
+padding:10px;
+
+margin:5px;
+
+}
+</style>
+<script>
+    loadData();
+
+function openProfile(){
+
+document.getElementById("profilePopup").style.display="block";
+
+}
+
+function openPassword(){
+
+document.getElementById("passwordPopup").style.display="block";
+
+}
+
+function openAddress(){
+
+document.getElementById("addressPopup").style.display="block";
+
+}
+
+function closePopup(){
+
+document.querySelectorAll(".popup").forEach(function(p){
+
+p.style.display="none";
+
+});
+
+}
+
+function saveProfile(){
+
+let name=document.getElementById("nameInput").value;
+
+let email=document.getElementById("emailInput").value;
+
+if(name!=""){
+
+localStorage.setItem("name",name);
+
+document.getElementById("displayName").innerHTML=name;
+
+}
+
+if(email!=""){
+
+localStorage.setItem("email",email);
+
+document.getElementById("displayEmail").innerHTML=email;
+
+}
+
+closePopup();
+
+}
+
+function changePassword(){
+
+alert("Password Changed Successfully");
+
+closePopup();
+
+}
+
+function saveAddress(){
+
+let address=document.getElementById("addressBox").value;
+
+localStorage.setItem("address",address);
+
+alert("Address Saved");
+
+closePopup();
+
+}
+
+document.getElementById("imageUpload").addEventListener("change",function(){
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+document.getElementById("profilePic").src=e.target.result;
+
+localStorage.setItem("photo",e.target.result);
+
+}
+
+reader.readAsDataURL(this.files[0]);
+
+});
+
+function loadData(){
+
+if(localStorage.getItem("name"))
+
+document.getElementById("displayName").innerHTML=localStorage.getItem("name");
+
+if(localStorage.getItem("email"))
+
+document.getElementById("displayEmail").innerHTML=localStorage.getItem("email");
+
+if(localStorage.getItem("photo"))
+
+document.getElementById("profilePic").src=localStorage.getItem("photo");
+
+}
+</script>
+
+
+</body>
+</html>

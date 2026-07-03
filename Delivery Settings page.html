@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <div class="container">
+  
+  <h2>📦 Delivery</h2>
+  
+  <div class="item">
+    <span>Saved Addresses</span>
+    <button>Manage</button>
+  </div>
+  
+  <div class="item">
+    <span>Delivery Instructions</span>
+    <button>Edit</button>
+  </div>
+  
+  <div class="item">
+    <span>Address Labels</span>
+    <select>
+      <option>Home</option>
+      <option>Work</option>
+      <option>Other</option>
+    </select>
+  </div>
+  
+  <div class="item">
+    <span>Default Delivery Address</span>
+    <label class="switch">
+      <input type="checkbox" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <div class="item">
+    <span>Live GPS Location</span>
+    <button onclick="getLocation()">Select</button>
+  </div>
+  
+  <div class="item">
+    <span>Pin Location on Map</span>
+    <button>Open Map</button>
+  </div>
+  
+  <div class="item">
+    <span>Leave at Door</span>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider"></span>
+    </label>
+  </div>
+  
+  <div class="item">
+    <span>Preferred Contact Method</span>
+    <select>
+      <option>Call</option>
+      <option>SMS</option>
+      <option>WhatsApp</option>
+      <option>No Contact</option>
+    </select>
+  </div>
+  
+  <div class="item">
+    <span>Preferred Delivery Time</span>
+    <select>
+      <option>8 AM - 10 AM</option>
+      <option>10 AM - 12 PM</option>
+      <option>12 PM - 2 PM</option>
+      <option>2 PM - 4 PM</option>
+      <option>4 PM - 6 PM</option>
+      <option>6 PM - 8 PM</option>
+    </select>
+  </div>
+  
+  <div class="item">
+    <span>Delivery Notes</span>
+    <button>Edit</button>
+  </div>
+  
+  <p id="locationResult"></p>
+  
+</div>
+<style>
+  body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    padding:20px;
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fff;
+    margin:12px 0;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+button{
+    background:#28a745;
+    color:#fff;
+    border:none;
+    padding:8px 15px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+select{
+    padding:8px;
+    border-radius:6px;
+}
+
+.switch{
+    position:relative;
+    width:50px;
+    height:26px;
+    display:inline-block;
+}
+
+.switch input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#ccc;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.slider:before{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    left:3px;
+    bottom:3px;
+    background:#fff;
+    border-radius:50%;
+    transition:.3s;
+}
+
+input:checked + .slider{
+    background:#28a745;
+}
+
+input:checked + .slider:before{
+    transform:translateX(24px);
+}
+
+#locationResult{
+    margin-top:20px;
+    font-size:14px;
+    color:#444;
+}
+</style>
+<script>
+  // Save all switches
+document.querySelectorAll(".switch input").forEach((toggle, index) => {
+  
+  let saved = localStorage.getItem("deliverySwitch" + index);
+  
+  if (saved !== null) {
+    toggle.checked = (saved === "true");
+  }
+  
+  toggle.addEventListener("change", () => {
+    localStorage.setItem("deliverySwitch" + index, toggle.checked);
+  });
+  
+});
+
+// Live GPS Location
+function getLocation() {
+  
+  if (navigator.geolocation) {
+    
+    navigator.geolocation.getCurrentPosition(function(position) {
+      
+      document.getElementById("locationResult").innerHTML =
+        "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+      
+    });
+    
+  } else {
+    
+    alert("Geolocation is not supported.");
+    
+  }
+  
+}
+
+// Buttons
+document.querySelectorAll("button").forEach(btn => {
+  
+  btn.addEventListener("click", () => {
+    
+    if (btn.innerText != "Select") {
+      alert(btn.innerText + " feature coming soon.");
+    }
+    
+  });
+  
+});
+</script>
+</body>
+
+</html>

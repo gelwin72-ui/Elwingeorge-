@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jo Mart Supermarket</title>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jo Mart Supermarket</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+header{
+    background:#0f6c3e;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+header h1{
+    margin-bottom:10px;
+}
+
+.search-bar{
+    display:flex;
+    justify-content:center;
+    margin-top:10px;
+}
+
+.search-bar input{
+    width:60%;
+    max-width:500px;
+    padding:10px;
+    border:none;
+    border-radius:5px 0 0 5px;
+}
+
+.search-bar button{
+    padding:10px 15px;
+    border:none;
+    background:orange;
+    cursor:pointer;
+    border-radius:0 5px 5px 0;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:20px 0;
+}
+
+.category{
+    background:white;
+    margin-bottom:20px;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.category h2{
+    color:#0f6c3e;
+    margin-bottom:15px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:10px;
+}
+
+.product{
+    background:#fafafa;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:5px;
+    text-align:center;
+}
+
+footer{
+    background:#0f6c3e;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+@media(max-width:768px){
+    .search-bar input{
+        width:80%;
+    }
+}
+</style>
+</head>
+<body>
+
+
+<div class="container">
+
+<div class="category">
+<h2>🛒 Grocery</h2>
+<div class="products">
+<div class="product">Rice</div>
+<div class="product">Wheat Flour (Atta)</div>
+<div class="product">Maida</div>
+<div class="product">Rava (Semolina)</div>
+<div class="product">Sugar</div>
+<div class="product">Salt</div>
+<div class="product">Jaggery</div>
+<div class="product">Cooking Oil</div>
+<div class="product">Ghee</div>
+<div class="product">Vinegar</div>
+<div class="product">Sauces</div>
+<div class="product">Pickles</div>
+<div class="product">Honey</div>
+<div class="product">Jam</div>
+</div>
+</div>
+
+<div class="category">
+<h2>🌾 Pulses & Grains</h2>
+<div class="products">
+<div class="product">Toor Dal</div>
+<div class="product">Moong Dal</div>
+<div class="product">Urad Dal</div>
+<div class="product">Chana Dal</div>
+<div class="product">Masoor Dal</div>
+<div class="product">Chickpeas</div>
+<div class="product">Rajma</div>
+<div class="product">Green Gram</div>
+</div>
+</div>
+
+<div class="category">
+<h2>🌶️ Spices</h2>
+<div class="products">
+<div class="product">Turmeric Powder</div>
+<div class="product">Chilli Powder</div>
+<div class="product">Coriander Powder</div>
+<div class="product">Pepper</div>
+<div class="product">Cumin</div>
+<div class="product">Mustard Seeds</div>
+<div class="product">Cardamom</div>
+<div class="product">Cloves</div>
+<div class="product">Cinnamon</div>
+<div class="product">Garam Masala</div>
+</div>
+</div>
+
+<div class="category">
+<h2>🍎 Fruits</h2>
+<div class="products">
+<div class="product">Apple</div>
+<div class="product">Banana</div>
+<div class="product">Orange</div>
+<div class="product">Mango</div>
+<div class="product">Grapes</div>
+<div class="product">Pineapple</div>
+<div class="product">Watermelon</div>
+<div class="product">Papaya</div>
+<div class="product">Guava</div>
+<div class="product">Pomegranate</div>
+</div>
+</div>
+
+<div class="category">
+<h2>🥦 Vegetables</h2>
+<div class="products">
+<div class="product">Potato</div>
+<div class="product">Onion</div>
+<div class="product">Tomato</div>
+<div class="product">Carrot</div>
+<div class="product">Beetroot</div>
+<div class="product">Cabbage</div>
+<div class="product">Cauliflower</div>
+<div class="product">Brinjal</div>
+<div class="product">Cucumber</div>
+<div class="product">Garlic</div>
+<div class="product">Ginger</div>
+</div>
+</div>
+
+<div class="category">
+<h2>🥛 Dairy Products</h2>
+<div class="products">
+<div class="product">Milk</div>
+<div class="product">Curd</div>
+<div class="product">Butter</div>
+<div class="product">Cheese</div>
+<div class="product">Paneer</div>
+<div class="product">Cream</div>
+<div class="product">Yogurt</div>
+</div>
+</div>
+
+<div class="category">
+<h2>🍞 Bakery</h2>
+<div class="products">
+<div class="product">Bread</div>
+<div class="product">Bun</div>
+<div class="product">Cake</div>
+<div class="product">Biscuit</div>
+<div class="product">Cookies</div>
+<div class="product">Rusk</div>
+<div class="product">Muffins</div>
+</div>
+</div>
+
+<div class="category">
+<h2>🍜 Instant Food</h2>
+<div class="products">
+<div class="product">Noodles</div>
+<div class="product">Pasta</div>
+<div class="product">Oats</div>
+<div class="product">Cornflakes</div>
+<div class="product">Instant Soup</div>
+</div>
+</div>
+
+<div class="category">
+<h2>🥤 Beverages</h2>
+<div class="products">
+<div class="product">Tea</div>
+<div class="product">Coffee</div>
+<div class="product">Green Tea</div>
+<div class="product">Soft Drinks</div>
+<div class="product">Fruit Juice</div>
+<div class="product">Energy Drinks</div>
+<div class="product">Mineral Water</div>
+</div>
+</div>
+
+<footer>
+    © Jo Mart Supermarket
+</footer>
+
+</body>
+</html>

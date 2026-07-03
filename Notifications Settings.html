@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Notification Settings</title>
+
+<link rel="stylesheet" href="notifications.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Notification Settings</h1>
+
+<div class="card">
+
+<div class="setting">
+
+<div class="left">
+<span class="material-icons">local_shipping</span>
+<div>
+<h3>Order Updates</h3>
+<p>Receive order and delivery notifications.</p>
+</div>
+</div>
+
+<label class="switch">
+<input type="checkbox" id="orderSwitch">
+<span class="slider"></span>
+</label>
+
+</div>
+
+<div class="setting">
+
+<div class="left">
+<span class="material-icons">campaign</span>
+<div>
+<h3>Promotional Offers</h3>
+<p>Receive discount and special offer alerts.</p>
+</div>
+</div>
+
+<label class="switch">
+<input type="checkbox" id="offerSwitch">
+<span class="slider"></span>
+</label>
+
+</div>
+
+<div class="setting">
+
+<div class="left">
+<span class="material-icons">mail</span>
+<div>
+<h3>Newsletter</h3>
+<p>Receive weekly newsletters.</p>
+</div>
+</div>
+
+<label class="switch">
+<input type="checkbox" id="newsSwitch">
+<span class="slider"></span>
+</label>
+
+</div>
+
+</div>
+
+</div>
+<style>
+    body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+}
+
+.container{
+max-width:600px;
+margin:30px auto;
+padding:20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+overflow:hidden;
+}
+
+.setting{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+border-bottom:1px solid #eee;
+}
+
+.setting:last-child{
+border-bottom:none;
+}
+
+.left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.left h3{
+margin:0;
+}
+
+.left p{
+margin:3px 0 0;
+font-size:13px;
+color:#666;
+}
+
+.material-icons{
+font-size:30px;
+color:#4CAF50;
+}
+
+/* Switch */
+
+.switch{
+position:relative;
+display:inline-block;
+width:55px;
+height:30px;
+}
+
+.switch input{
+display:none;
+}
+
+.slider{
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#ccc;
+transition:.4s;
+border-radius:30px;
+}
+
+.slider:before{
+position:absolute;
+content:"";
+height:22px;
+width:22px;
+left:4px;
+bottom:4px;
+background:white;
+transition:.4s;
+border-radius:50%;
+}
+
+input:checked + .slider{
+background:#4CAF50;
+}
+
+input:checked + .slider:before{
+transform:translateX(25px);
+}
+</style>
+<script>
+    const order=document.getElementById("orderSwitch");
+const offer=document.getElementById("offerSwitch");
+const news=document.getElementById("newsSwitch");
+
+order.checked=localStorage.getItem("order")=="true";
+offer.checked=localStorage.getItem("offer")=="true";
+news.checked=localStorage.getItem("news")=="true";
+
+order.addEventListener("change",function(){
+
+localStorage.setItem("order",this.checked);
+
+});
+
+offer.addEventListener("change",function(){
+
+localStorage.setItem("offer",this.checked);
+
+});
+
+news.addEventListener("change",function(){
+
+localStorage.setItem("news",this.checked);
+
+});
+</script>
+
+</body>
+</html>

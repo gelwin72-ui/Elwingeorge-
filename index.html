@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jo Mart Supermarket</title>
+<link rel="stylesheet" href="index.css">
+   <script>
+function toggleMenu() {
+    let sidebar = document.getElementById("sidebar");
+    
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px";
+    } else {
+        sidebar.style.left = "0px";
+    }
+}
+</script>
+    <div id="sidebar" class="sidebar">
+    <h2>⚙️ Settings</h2>
+   
+
+    <a href="/Account.html">👤 My Account</a>
+    <a href="/shopping.html">❤️ Wishlist</a>
+    <a href="/Notifications Settings.html">🔔 Notifications</a>
+    <a href="/appearance.html">🌙 Dark Mode</a>
+    <a href="/Language.html">🌐 Language</a>
+    <a href="/user profile.html">📍 user profile</a>
+    <a href="/Location & Payments.html">💳 Payment Methods</a>
+    <a href="/Delivery Settings page.html">�Delivery Settings</a>
+    <a href="/Privacy & Security.html">🔒 Privacy & Security</a>
+    <a href="/About.html">ℹ️ About Us</a>
+    <a href="/Contact Us.html">📞 Contact Us</a>
+    <a href="/Logout.html">🚪 Logout</a>
+   
+</div>
+ <button class="menu-btn" onclick="toggleMenu()">⚙️ </button>
+</head>
+<body>
+
+<header>
+
+<div class="logo">🛒 Jo Mart</div>
+
+<input type="text" placeholder="Search products"
+ onclick="window.location.href='products.html'"
+    Search>
+</div>
+<div class="cart">🛍️</div>
+
+
+</header>
+
+<nav>
+    
+<a href="/LoginandSignUp .html"> Login and sign up</a>
+
+<a href="/index.html">Home</a>
+
+<a href="/products1.html">Categories</a>
+
+<a href="Offers&Coupons.html">Offers</a>
+
+<a href="/products.html">Products</a>
+
+<a href="/ContactUs.html">Contact</a>
+
+</nav>
+
+
+<h2 class="section-title">Shop by Category</h2>
+
+<div class="categories">
+
+<div class="category">🥦 Vegetables</div>
+
+<div class="category">🍎 Fruits</div>
+
+<div class="category">🥛 Dairy</div>
+
+<div class="category">🥤 Drinks</div>
+
+<div class="category">🍪 Snacks</div>
+
+<div class="category">🍚 Grocery</div>
+
+</div>
+
+<h2 class="section-title">Featured Products</h2>
+
+<div class="products">
+
+<div class="product">
+
+<img src="/image/Cashew Nuts.png">
+
+<h3>Cashew Nuts</h3>
+
+<p class="price">₹180/kg</p>
+
+<button>Add to Cart</button>
+
+</div>
+
+<div class="product">
+    <img src="/image/Dates.png" alt="Dates.">
+    <h3>Dates</h3>
+    <p class="price">₹180/kg</p>
+    <button>Add to Cart</button>
+</div>
+</div>
+
+<h2 class="section-title">Why Choose Jo Mart?</h2>
+
+<div class="why">
+
+<div class="box">
+🚚<br><br>
+Fast Delivery
+</div>
+
+<div class="box">
+💰<br><br>
+Best Prices
+</div>
+
+<div class="box">
+🥇<br><br>
+Quality Products
+</div>
+
+<div class="box">
+📞<br><br>
+24/7 Support
+</div>
+
+</div>
+
+<footer>
+
+© Jo Mart Supermarket
+
+</footer>
+<script>
+document.getElementById("searchBox").addEventListener("input", function () {
+
+    let filter = this.value.toLowerCase();
+    let products = document.querySelectorAll(".product");
+
+    products.forEach(function(product) {
+
+        let title = product.querySelector("h3");
+
+        if (!title) return;
+
+        if (title.textContent.toLowerCase().includes(filter)) {
+            product.style.display = "";
+        } else {
+            product.style.display = "none";
+        }
+
+    });
+
+});
+</script>
+</body>
+</html>

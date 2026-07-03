@@ -1,0 +1,117 @@
+<html>
+<body>
+    <style>
+/* Settings Container */
+.settings-container{
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Buttons */
+.settings-container button,
+button{
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+}
+
+/* Logout Button */
+button:nth-of-type(1){
+    background: #2196F3;
+}
+
+button:nth-of-type(1):hover{
+    background: #1976D2;
+    transform: translateY(-2px);
+}
+
+/* Clear History Button */
+button:nth-of-type(2){
+    background: #FF9800;
+}
+
+button:nth-of-type(2):hover{
+    background: #F57C00;
+    transform: translateY(-2px);
+}
+
+/* Reset App Data Button */
+button:nth-of-type(3){
+    background: #f44336;
+}
+
+button:nth-of-type(3):hover{
+    background: #d32f2f;
+    transform: translateY(-2px);
+}
+
+/* Orders List */
+#orders{
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#orders li{
+    background: #fff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Mobile */
+@media(max-width:600px){
+    button{
+        font-size:15px;
+        padding:12px;
+    }
+}
+}</style>
+<button onclick="logout()">Logout</button>
+
+<script>
+function logout(){
+    if(confirm("Are you sure?")){
+        window.location.href="index.html";
+    }
+}
+
+</script>
+<button onclick="clearOrders()">
+    Clear History
+</button>
+
+<ul id="orders"></ul>
+<script>
+function clearOrders() {
+
+    localStorage.removeItem("orders");
+
+    document.getElementById("orders").innerHTML = "";
+
+    alert(" history  cleared!");
+}
+</script>
+<script>
+function clearAllData() {
+
+    localStorage.clear();
+
+    alert("All saved data removed!");
+}
+</script>
+<button onclick="clearAllData()">
+    Reset App Data
+</button>
+    
+</body>
+</html>

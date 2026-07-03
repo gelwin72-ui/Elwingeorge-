@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Offers & Coupons</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🎁 Offers & Coupons</h1>
+    <p>Save more with exclusive deals</p>
+  </header>
+
+  <section class="offers-container">
+
+    <div class="coupon-card">
+      <h2>WELCOME10</h2>
+      <p>Flat 10% OFF on first order</p>
+      <span>Min order: ₹199</span>
+      <small>Expires: 31 July 2026</small>
+      <button onclick="copyCoupon('WELCOME10')">Copy Code</button>
+    </div>
+
+    <div class="coupon-card">
+      <h2>SAVE50</h2>
+      <p>₹50 OFF on groceries</p>
+      <span>Min order: ₹299</span>
+      <small>Expires: 15 July 2026</small>
+      <button onclick="copyCoupon('SAVE50')">Copy Code</button>
+    </div>
+
+    <div class="coupon-card">
+      <h2>FREESHIP</h2>
+      <p>Free Delivery on all orders</p>
+      <span>No minimum order</span>
+      <small>Expires: Limited Time</small>
+      <button onclick="copyCoupon('FREESHIP')">Copy Code</button>
+    </div>
+
+    <div id="message"></div>
+
+  </section>
+<style>body {
+font-family: Arial, sans-serif;
+margin: 0;
+background: #f5f6fa;
+}
+
+header {
+background: linear-gradient(135deg, #ff6b6b, #ff9f43);
+color: white;
+text-align: center;
+padding: 20px;
+}
+
+.offers-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+padding: 20px;
+}
+
+.coupon-card {
+background: white;
+width: 260px;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+text-align: center;
+transition: 0.3s;
+}
+
+.coupon-card:hover {
+transform: translateY(-5px);
+}
+
+.coupon-card h2 {
+color: #ff6b6b;
+}
+
+.coupon-card p {
+margin: 10px 0;
+}
+
+.coupon-card span {
+display: block;
+font-weight: bold;
+margin: 5px 0;
+}
+
+.coupon-card small {
+color: gray;
+}
+
+button {
+margin-top: 10px;
+padding: 10px;
+border: none;
+background: #2ed573;
+color: white;
+border-radius: 6px;
+cursor: pointer;
+}
+
+button:hover {
+background: #27ae60;
+}
+
+#message {
+position: fixed;
+bottom: 20px;
+background: black;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+display: none;
+}</style>
+  <script>
+    function copyCoupon(code) {
+  navigator.clipboard.writeText(code).then(() => {
+    showMessage("Coupon Copied: " + code);
+  });
+}
+
+function showMessage(text) {
+  const msg = document.getElementById("message");
+  msg.innerText = text;
+  msg.style.display = "block";
+  
+  setTimeout(() => {
+    msg.style.display = "none";
+  }, 2000);
+}
+  </script>
+</body>
+</html>

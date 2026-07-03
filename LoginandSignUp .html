@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <div class="auth-buttons">
+    <button onclick="showLogin()">Login</button>
+    <button onclick="showSignup()">Sign Up</button>
+</div>
+<div id="loginForm" class="popup">
+
+    <h2>Login</h2>
+
+    <input type="email" id="loginEmail" placeholder="Email">
+
+    <input type="password" id="loginPassword" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+</div>
+<div id="signupForm" class="popup">
+
+    <h2>Create Account</h2>
+
+    <input type="text" id="signupName" placeholder="Full Name">
+
+    <input type="email" id="signupEmail" placeholder="Email">
+
+    <input type="password" id="signupPassword" placeholder="Password">
+
+    <button onclick="signup()">Create Account</button>
+
+</div>
+<style>
+  .popup{
+    display:none;
+    width:320px;
+    background:white;
+    padding:20px;
+    margin:40px auto;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+.popup input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+.auth-buttons{
+    text-align:center;
+    margin:20px;
+}
+
+.auth-buttons button{
+    margin:5px;
+    padding:10px 20px;
+}
+</style>
+<script>
+
+function showLogin(){
+    document.getElementById("loginForm").style.display="block";
+    document.getElementById("signupForm").style.display="none";
+}
+
+function showSignup(){
+    document.getElementById("signupForm").style.display="block";
+    document.getElementById("loginForm").style.display="none";
+}
+
+function signup(){
+
+    let name=document.getElementById("signupName").value;
+    let email=document.getElementById("signupEmail").value;
+    let password=document.getElementById("signupPassword").value;
+
+    localStorage.setItem("name",name);
+    localStorage.setItem("email",email);
+    localStorage.setItem("password",password);
+
+    alert("Account created successfully!");
+
+}
+
+function login(){
+
+    let email=document.getElementById("loginEmail").value;
+    let password=document.getElementById("loginPassword").value;
+
+    if(
+        email===localStorage.getItem("email") &&
+        password===localStorage.getItem("password")
+    ){
+
+        alert("Login Successful!");
+
+    }else{
+
+        alert("Invalid Email or Password");
+
+    }
+
+}
+
+</script>
+</body>
+
+</html>

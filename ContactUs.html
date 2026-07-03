@@ -1,0 +1,91 @@
+<div class="contact-container">
+    <h1>Contact Us</h1>
+
+    <div class="contact-info">
+        <p> Jo Mart Supermarket, Koodaranhi,   Kozhikode, Kerala</p>
+        <p>Phone : +91 8848684301</p>
+        <p> WhatsApp: +91 8848684301</p>
+        <p> support@jomart.com</p>
+        <p> 8:00 AM - 9:00 PM</p>
+        <p><a href="https://maps.app.goo.gl/mdjNikwAD49hj7Xx8?g_st=aw"
+   target="_blank"
+   class="map-btn">
+     Open in Google Maps
+</p>
+<br>
+    </div>
+<br>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <input type="text" id="subject" placeholder="Subject">
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+<style>
+  .contact-container{
+    max-width:600px;
+    margin:20px auto;
+    padding:20px;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+.contact-container h1{
+    text-align:center;
+    color:#28a745;
+}
+
+.contact-info p{
+    margin:8px 0;
+    text-align: center;
+    font-size: 25px;
+}
+
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#28a745;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#218838;
+}
+
+#result{
+    text-align:center;
+    margin-top:15px;
+    color:green;
+    font-weight:bold;
+}
+</style>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    document.getElementById("result").innerHTML =
+    "✅ Thank you! Your message has been sent.";
+
+    this.reset();
+});
+</script>

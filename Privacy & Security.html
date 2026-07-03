@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy & Security</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h2>🔒 Privacy & Security</h2>
+
+<div class="item">
+<span>App Lock</span>
+<label class="switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="item">
+<span>Two-Factor Authentication</span>
+<button>Setup</button>
+</div>
+
+<div class="item">
+<span>Change Password</span>
+<button>Change</button>
+</div>
+
+<div class="item">
+<span>Privacy Settings</span>
+<button>Open</button>
+</div>
+
+<div class="item">
+<span>Biometric Login (Fingerprint / Face ID)</span>
+<label class="switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="item">
+<span>Remember Login</span>
+<label class="switch">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="item">
+<span>Hide Account Balance</span>
+<label class="switch">
+<input type="checkbox">
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="item">
+<span>Manage Connected Devices</span>
+<button>View</button>
+</div>
+
+<div class="item">
+<span>Login History</span>
+<button>Open</button>
+</div>
+
+<div class="item">
+<span>Session Timeout</span>
+<select>
+<option>5 Minutes</option>
+<option>10 Minutes</option>
+<option>15 Minutes</option>
+<option>30 Minutes</option>
+</select>
+</div>
+
+<div class="item danger">
+<span>Delete Account</span>
+<button class="delete">Delete</button>
+</div>
+
+<div class="item">
+<span>Download Personal Data</span>
+<button>Download</button>
+</div>
+
+<div class="item">
+<span>Manage Permissions</span>
+<button>Manage</button>
+</div>
+
+<div class="item">
+<span>Clear Search & Shopping History</span>
+<button>Clear</button>
+</div>
+
+</div>
+<style>
+  body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#fff;
+padding:15px;
+margin-bottom:12px;
+border-radius:12px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+button{
+background:#28a745;
+color:#fff;
+border:none;
+padding:8px 16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.delete{
+background:#dc3545;
+}
+
+select{
+padding:8px;
+border-radius:6px;
+}
+
+.switch{
+position:relative;
+display:inline-block;
+width:50px;
+height:26px;
+}
+
+.switch input{
+display:none;
+}
+
+.slider{
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#ccc;
+transition:.4s;
+border-radius:30px;
+}
+
+.slider:before{
+position:absolute;
+content:"";
+height:20px;
+width:20px;
+left:3px;
+bottom:3px;
+background:white;
+transition:.4s;
+border-radius:50%;
+}
+
+input:checked + .slider{
+background:#28a745;
+}
+
+input:checked + .slider:before{
+transform:translateX(24px);
+}
+</style>
+<script>
+  const switches = document.querySelectorAll(".switch input");
+
+switches.forEach((toggle,index)=>{
+let saved = localStorage.getItem("privacy"+index);
+
+if(saved==="true"){
+toggle.checked=true;
+}
+
+if(saved==="false"){
+toggle.checked=false;
+}
+
+toggle.addEventListener("change",()=>{
+localStorage.setItem("privacy"+index,toggle.checked);
+});
+});
+
+document.querySelector(".delete").onclick=function(){
+
+if(confirm("Are you sure you want to delete your account?")){
+alert("Account deletion request submitted.");
+}
+
+};
+
+document.querySelectorAll("button").forEach(btn=>{
+
+if(btn.innerText==="Download"){
+btn.onclick=()=>{
+alert("Preparing your personal data...");
+};
+}
+
+if(btn.innerText==="Clear"){
+btn.onclick=()=>{
+if(confirm("Clear Search & Shopping History?")){
+alert("History Cleared.");
+}
+};
+}
+
+});
+</script>
+</body>
+</html>
